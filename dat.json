@@ -1,0 +1,67 @@
+[
+   {
+        "id": "producto-1",
+        "img": "./img/callduty.jpg",
+        "nombre": "Call of Duty",
+        "des": "first-person shooter video game franchise published by Activision",
+        "price": 35,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-2",
+        "img": "./img/Crash.jpg",
+        "nombre": "Crash Bandicoot",
+        "des": "a platform game in which the player controls the titular character Crash, who is tasked with traversing 32 levels to defeat Doctor Neo Cortex and rescue Tawna",
+        "price": 30,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-3",
+        "img": "./img/dragonball.jpg",
+        "nombre": "Dragon Ball",
+        "des": "Su trama describe las aventuras de Gokū, un guerrero saiyajin, experto en artes marciales que en su infancia inicia sus viajes y aventuras en las que pone a prueba y mejora sus habilidades de pelea, enfrentando oponentes y protegiendo a la Tierra de otros seres que quieren conquistarla y exterminar a la humanidad",
+        "price": 42,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-4",
+        "img": "./img/fifa.jpg",
+        "nombre": "FIFA",
+        "des": "Founded in 1904 to provide unity among national soccer associations",
+        "price": 55,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-5",
+        "img": "./img/mortal.jpg",
+        "nombre": "Mortal Kombat",
+        "des": "Mortal Kombat is a fighting game in which players battle opponents in one-on-one matches.",
+        "price": 60,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-6",
+        "img": "./img/naruto.jpg",
+        "nombre": "Naruto",
+        "des": "Naruto is a ninja-in-training whose wild antics amuse his teammates. But he's completely serious about one thing: becoming the world's greatest ninja!",
+        "price": 32,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-7",
+        "img": "./img/pacman.jpg",
+        "nombre": "Pacman",
+        "des": "Pac-Man is an action maze chase video game; the player controls the eponymous character through an enclosed maze.",
+        "price": 45,
+        "cantidad": 1
+    },
+    {
+        "id": "producto-8",
+        "img": "./img/shingeki.jpg",
+        "nombre": "Attack on Titan",
+        "des": "action hack and slash video game based on the animated series Attack on Titan",
+        "price": 40,
+        "cantidad": 1
+    }
+     
+]
