@@ -1,22 +1,23 @@
 let productos = [];
 
-fetch("dat.json")
- .then(response => response.json())
- .then(data => {
-  productos = data;
-  CargarProductos(productos)
- })
+document.addEventListener('DOMContentLoaded', () => {
+  fetch("dat.json")
+    .then(response => response.json())
+    .then(data => {
+      productos = data;
+      CargarProductos(productos);
+    });
+});
 
 const contenedorProductos = document.querySelector("#contenedor-productos")
-const Clickbutton = document.querySelectorAll('.button')
+let Clickbutton = document.querySelectorAll('.button')
 const tbody = document.querySelector('.tbody')
 let carrito = []
 
-function CargarProductos(){
-  
+function CargarProductos(data){
   contenedorProductos.innerHTML = "";
  
-  productos.forEach(producto => {
+  data.forEach(producto => {
     const div = document.createElement("div");
     div.innerHTML =`
     <div class="col d-flex justify-content-center mb-4">
@@ -34,42 +35,37 @@ function CargarProductos(){
         </div>
     `
     contenedorProductos.append(div);
+  
   })
 
   actualizarBotonesAgregar()
   
 }
 
-function actualizarBotonesAgregar(){
-  botonesAgregar = document.querySelectorAll(".button");
-  
+function actualizarBotonesAgregar() {
+  Clickbutton = document.querySelectorAll('.button');
+  Clickbutton.forEach(btn => {
+    btn.addEventListener('click', addToCarritoItem);
+  });
 }
 
-Clickbutton.forEach(btn => {
-  btn.addEventListener('click', ()=>{
-    console.log("hola")
-  })
-})
 
-
-function addToCarritoItem(e){
-  const button = e.target
-  const item = button.closest('.card')
+function addToCarritoItem(e) {
+  const button = e.target;
+  const item = button.closest('.card');
   const itemTitle = item.querySelector('.card-title').textContent;
   const itemPrice = item.querySelector('.precio').textContent;
   const itemImg = item.querySelector('.card-img-top').src;
-  
+
   const newItem = {
     title: itemTitle,
     precio: itemPrice,
     img: itemImg,
     cantidad: 1
-  }
+  };
 
-  addItemCarrito(newItem)
-  obtenerdatos()
+  addItemCarrito(newItem);
 }
-// aca arriba es lo que debo de cambiar para que funcion el fetch y le agregue al carrito pero no se que manera hacerlo busque varias maneras  y nada si me pueden ayudar porfa tutores
 
 function addItemCarrito(newItem){
 
@@ -91,9 +87,9 @@ function addItemCarrito(newItem){
     }
   }
   
-  carrito.push(newItem)
+  carrito.push(newItem);
   
-  renderCarrito()
+  renderCarrito();
 } 
 
 
@@ -129,7 +125,7 @@ function CarritoTotal(){
   let Total = 0;
   const itemCartTotal = document.querySelector('.itemCartTotal')
   carrito.forEach((item) => {
-    const precio = Number(item.precio.replace("$", ''))
+    const precio = Number(item.precio.toString().replace("$", ""))
     Total = Total + precio*item.cantidad
   })
 
@@ -141,23 +137,22 @@ function removeItemCarrito(e){
   const buttonDelete = e.target
   const tr = buttonDelete.closest(".ItemCarrito")
   const title = tr.querySelector('.title').textContent;
-  for(let i=0; i<carrito.length ; i++){
 
+  for(let i=0; i<carrito.length ; i++){
     if(carrito[i].title.trim() === title.trim()){
       carrito.splice(i, 1)
     }
   }
 
   const alert = document.querySelector('.remove')
-
-  setTimeout( function(){
+  if(alert){setTimeout( function(){
     alert.classList.add('remove')
   }, 2000)
     alert.classList.remove('remove')
 
   tr.remove()
   CarritoTotal()
-}
+}}
 
 function sumaCantidad(e){
   const sumaInput  = e.target
